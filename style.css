@@ -907,17 +907,45 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.1; }
     z-index: 2;
 }
 .partner-composite img {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: contain;
+transition: transform 0.4s ease, filter 0.4s ease;
+z-index: 2;
+
+}
+
+.partner-composite {
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform 0.4s ease, filter 0.4s ease;
-    z-index: 2;
-    -webkit-mask-image: linear-gradient(to bottom, black 30%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 92%);
-    mask-image: linear-gradient(to bottom, black 30%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 92%);
+    transition: transform 0.4s ease, z-index 0.4s ease;
+    overflow: visible;
 }
+
+.partner-composite::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 140px;
+    z-index: 3;
+    pointer-events: none;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 15, 30, 0) 0%,
+        rgba(11, 15, 30, 0.12) 35%,
+        rgba(11, 15, 30, 0.45) 70%,
+        rgba(11, 15, 30, 0.92) 100%
+    );
+
+    filter: blur(18px);
+}
+
 .wanderson-frame img {
     filter: brightness(0.96) contrast(1.04) saturate(0.95) drop-shadow(15px 5px 25px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 15px rgba(37, 99, 255, 0.08));
 }
@@ -1007,7 +1035,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.1; }
 }
 
 /* ============================================================
-    PROCESS */
+    PROCESS 
 ============================================================ */
 .process {
     padding: 120px 0;
