@@ -1,41 +1,586 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agência Wel</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agência Wel — Marketing Digital de Alta Performance</title>
+  <meta name="description" content="Transformamos empresas em máquinas de vendas através do marketing digital de alto nível." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <style></style>
 </head>
 <body>
-    <header>
-        <div class="brand">
-            <img src="/assets/logowel.png" alt="">
+
+<!-- Particles -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark"><img src="logopura_comfundo.png" alt=""></div>
+        <span class="logo-text">Agência <span>Wel</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#sobre">Fundadores</a></li>
+        <li><a href="#cases">Atuação</a></li>
+        <li><a href="#process">Processo</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://wa.me/5522988774012" target="_blank" class="btn btn-ghost" style="font-size:13px;padding:10px 20px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://wa.me/5522988774012" target="_blank" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">
+          Agendar Reunião →
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#services" class="mobile-link">Serviços</a>
+  <a href="#sobre" class="mobile-link">Fundadores</a>
+  <a href="#cases" class="mobile-link">Atuação</a>
+  <a href="#process" class="mobile-link">Processo</a>
+  <a href="#contact" class="mobile-link">Contato</a>
+  <a href="https://wa.me/5522988774012" target="_blank" class="btn btn-wpp" style="margin-top:16px;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar no WhatsApp
+  </a>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Content -->
+      <div class="hero-content">
+        <div class="hero-tag reveal">
+          <span class="tag">🚀 Marketing Digital de Alto Nível</span>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre nós</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main></main>
-    <footer>
-        <div>
-            <a href="#"><img src="/assets/logowel.png" alt=""></a>
-            <h2>Agência Wel</h2>
-            <p>Transformamos estratégias em crescimento e oportunidades em resultados.</p>
+        <h1 class="reveal reveal-delay-1">
+          Construímos o marketing que o seu <span class="gradient-text">comercial sempre quis</span>
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          Sem truques ou fórmulas mágicas. Unimos gestão estratégica de tráfego pago, design de alta conversão e inteligência de dados para gerar oportunidades reais de negócios.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="https://wa.me/5522988774012" target="_blank" class="btn btn-wpp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a href="#services" class="btn btn-ghost">
+            Ver Serviços
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <div>
-            <nav>
-                <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Sobre nós</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
-            </nav>
+        <div class="hero-social-proof reveal reveal-delay-4">
+          <div class="avatars">
+            <div class="av">W</div>
+            <div class="av">E</div>
+            <div class="av">L</div>
+          </div>
+          <div class="proof-text">
+            <strong>Assessoria de Crescimento Premium</strong>
+            Acompanhamento direto pelos sócios fundadores
+          </div>
         </div>
-    </footer>
-    <script src="js/global.js"></script>
+      </div>
+
+      <!-- Visual -->
+      <div class="hero-visual reveal reveal-delay-2">
+        <div class="dashboard-card">
+          <div class="card-header">
+            <span class="card-title">Painel de Métricas (Exemplo)</span>
+            <span class="card-badge">Dashboard de Clientes</span>
+          </div>
+          <div class="chart-bars">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            <div class="bar"></div><div class="bar"></div>
+          </div>
+          <div class="chart-stat">
+            <div>
+              <div class="card-title" style="margin-bottom:4px">Faturamento Projetado</div>
+              <div class="stat-val">R$&thinsp;<span class="counting" data-target="250000">0</span></div>
+            </div>
+            <div style="text-align:right">
+              <div class="card-title" style="margin-bottom:4px">ROAS Almejado</div>
+              <div class="stat-val stat-chg">8.0×</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-pill pill-1">
+          <div class="pill-dot" style="background:#00e676;box-shadow:0 0 8px #00e676;"></div>
+          Painel Integrado
+        </div>
+        <div class="floating-pill pill-2">
+          <div class="pill-dot" style="background:var(--blue-light);box-shadow:0 0 8px var(--blue-light);"></div>
+          Otimização Diária
+        </div>
+        <div class="floating-pill pill-3">
+          <div class="pill-dot" style="background:var(--purple-light);box-shadow:0 0 8px var(--purple-light);"></div>
+          Foco em ROI
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     METRICS
+============================================================ -->
+<section class="metrics" id="metrics">
+  <div class="container">
+    <div class="metrics-grid">
+      <div class="metric-item reveal">
+        <div class="metric-icon">👥</div>
+        <div class="metric-num"><span class="counting" data-target="2">0</span></div>
+        <div class="metric-label">Sócios Dedicados a Você</div>
+      </div>
+      <div class="metric-item reveal reveal-delay-1">
+        <div class="metric-icon">🎯</div>
+        <div class="metric-num"><span class="counting" data-target="100">0</span>%</div>
+        <div class="metric-label">Foco e Execução Sob Medida</div>
+      </div>
+      <div class="metric-item reveal reveal-delay-2">
+        <div class="metric-icon">🛡️</div>
+        <div class="metric-num"><span class="counting" data-target="0">0</span></div>
+        <div class="metric-label">Modelos Prontos ou Clichês</div>
+      </div>
+      <div class="metric-item reveal reveal-delay-3">
+        <div class="metric-icon">📆</div>
+        <div class="metric-num"><span class="counting" data-target="7">0</span>/7</div>
+        <div class="metric-label">Dias de Monitoramento Semanal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">O que fazemos</span>
+      <h2>Soluções completas para <span class="gradient-text">seu crescimento</span></h2>
+      <p>Do tráfego ao design, das landing pages ao branding — tudo integrado para maximizar seus resultados.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon" style="background:rgba(37,99,255,0.12);border:1px solid rgba(37,99,255,0.25);">🎯</div>
+        <h3>Gestão de Tráfego</h3>
+        <p>Campanhas de alta performance no Google Ads, Meta Ads e TikTok Ads com foco total em ROI positivo e escala sustentável.</p>
+        <span class="service-arrow">Saiba mais →</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon" style="background:rgba(91,61,245,0.12);border:1px solid rgba(91,61,245,0.25);">📱</div>
+        <h3>Social Media</h3>
+        <p>Conteúdo estratégico que engaja, converte e constrói autoridade de marca nas redes sociais certas para o seu público.</p>
+        <span class="service-arrow">Saiba mais →</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon" style="background:rgba(37,99,255,0.12);border:1px solid rgba(37,99,255,0.25);">⚡</div>
+        <h3>Landing Pages</h3>
+        <p>Páginas de alta conversão desenvolvidas com copy persuasivo, design premium e velocidade de carregamento impecável.</p>
+        <span class="service-arrow">Saiba mais →</span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon" style="background:rgba(0,200,83,0.1);border:1px solid rgba(0,200,83,0.2);">🎨</div>
+        <h3>Design de Conversão</h3>
+        <p>Criativos estáticos e em vídeo desenvolvidos com técnicas de neuromarketing para reter a atenção no feed e multiplicar seus cliques.</p>
+        <span class="service-arrow">Saiba mais →</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon" style="background:rgba(255,183,0,0.1);border:1px solid rgba(255,183,0,0.2);">✨</div>
+        <h3>Branding</h3>
+        <p>Identidade visual memorável e estratégia de posicionamento que diferencia sua marca e cria conexão genuína com o público.</p>
+        <span class="service-arrow">Saiba mais →</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon" style="background:rgba(91,61,245,0.12);border:1px solid rgba(91,61,245,0.25);">🌐</div>
+        <h3>Sites Premium</h3>
+        <p>Websites institucionais e de vendas desenvolvidos com design de alto impacto, performance técnica e foco em conversão.</p>
+        <span class="service-arrow">Saiba mais →</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIFFERENTIALS
+============================================================ -->
+<section class="differentials" id="differentials">
+  <div class="container">
+    <div class="diff-grid">
+      <!-- Visual -->
+      <div class="diff-visual reveal">
+        <div class="diff-ring diff-ring-1">
+          <div class="diff-dot" style="top:-5px;left:50%;transform:translateX(-50%);"></div>
+        </div>
+        <div class="diff-ring diff-ring-2">
+          <div class="diff-dot" style="top:-5px;left:50%;transform:translateX(-50%);background:var(--purple);box-shadow:0 0 12px var(--purple);"></div>
+        </div>
+        <div class="diff-ring diff-ring-3"></div>
+        <div class="diff-center"><img src="logopura_comfundo.png" alt="" style="border-radius: 50%;"></div>
+
+        <div class="diff-item-card d-card-1">
+          <div class="d-icon" style="background:rgba(37,99,255,0.12);">📈</div>
+          <span>Estratégia</span>
+        </div>
+        <div class="diff-item-card d-card-2">
+          <div class="d-icon" style="background:rgba(91,61,245,0.12);">🎨</div>
+          <span>Criatividade</span>
+        </div>
+        <div class="diff-item-card d-card-3">
+          <div class="d-icon" style="background:rgba(0,200,83,0.1);">⚡</div>
+          <span>Performance</span>
+        </div>
+        <div class="diff-item-card d-card-4">
+          <div class="d-icon" style="background:rgba(255,183,0,0.1);">🤖</div>
+          <span>Tecnologia</span>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="diff-content reveal reveal-delay-1">
+        <span class="tag">Por que a Wel</span>
+        <h2>Não somos uma agência comum. Somos sua <span class="gradient-text">equipe de crescimento.</span></h2>
+        <p>Combinamos estratégia data-driven, criatividade de alto nível e tecnologia de ponta para entregar resultados que transformam negócios de verdade.</p>
+        <div class="diff-list">
+          <div class="diff-list-item">
+            <div class="diff-check">✓</div>
+            <p><strong>Resultados mensuráveis</strong> — Cada centavo investido é rastreado, otimizado e reportado com total transparência.</p>
+          </div>
+          <div class="diff-list-item">
+            <div class="diff-check">✓</div>
+            <p><strong>Time especializado</strong> — Profissionais certificados e especializados em cada área do marketing digital.</p>
+          </div>
+          <div class="diff-list-item">
+            <div class="diff-check">✓</div>
+            <p><strong>Estratégia personalizada</strong> — Nenhum cliente recebe o mesmo plano. Tudo é feito sob medida para seu negócio.</p>
+          </div>
+          <div class="diff-list-item">
+            <div class="diff-check">✓</div>
+            <p><strong>Suporte contínuo</strong> — Não sumimos depois do onboarding. Estamos ao seu lado em cada etapa da jornada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOBRE NÓS / FUNDADORES
+============================================================ -->
+<section class="about" id="sobre">
+  <div class="orb orb-about"></div>
+  <div class="container">
+    <div class="about-grid">
+      <!-- Content -->
+      <div class="about-content reveal">
+        <span class="tag">Quem Somos</span>
+        <h2>Os olhos do dono <br><span class="gradient-text">no seu negócio</span></h2>
+        <div class="about-text">
+          <p>
+            Acreditamos que o marketing digital de alta performance não pode ser tratado como uma linha de montagem industrial. No mercado atual, muitas agências vendem fórmulas prontas e delegam a execução das contas para profissionais juniores ou estagiários.
+          </p>
+          <p>
+            Fundamos a <strong>Agência Wel</strong> para fazer diferente. Nós somos uma assessoria boutique de crescimento acelerado. Isso significa que escolhemos trabalhar com um número limitado de projetos para garantir que os próprios sócios planejem, executem e otimizem cada etapa do seu funil.
+          </p>
+          <p>
+            Nossa missão é entregar resultados reais por meio de criatividade de ponta, engenharia de dados e total transparência. Se você procura parceiros de negócios focados na sua escala, e não apenas relatórios de vaidade, você está no lugar certo.
+          </p>
+        </div>
+
+        <div class="about-partners">
+          <div class="partner-brief">
+            <span class="partner-role">Tráfego & Dados</span>
+            <div class="partner-name">Sócio Diretor</div>
+            <div class="partner-desc">Especialista em tráfego pago, análise de dados e automações inteligentes de vendas.</div>
+          </div>
+          <div class="partner-brief">
+            <span class="partner-role">Design & Copy</span>
+            <div class="partner-name">Sócio Estrategista</div>
+            <div class="partner-desc">Focado em criar layouts premium de alta conversão, identidade de marca e redação persuasiva.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="about-visual reveal reveal-delay-1">
+        <!-- Partner 1 -->
+        <div class="about-img-frame">
+          <img src="socio1.jpeg" alt="Sócio Diretor" onerror="this.style.display='none';">
+          <div class="about-placeholder">
+            <div class="about-placeholder-icon">👨‍💻</div>
+            <h4>Sócio Diretor</h4>
+            <p>Carregue o arquivo <code>socio1.jpg</code></p>
+          </div>
+        </div>
+        <!-- Partner 2 -->
+        <div class="about-img-frame" style="margin-top: 32px;">
+          <img src="socio2.png" alt="Sócio Estrategista" onerror="this.style.display='none';">
+          <div class="about-placeholder">
+            <div class="about-placeholder-icon">🎨</div>
+            <h4>Sócio Estrategista</h4>
+            <p>Carregue o arquivo <code>socio2.jpg</code></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CASES
+============================================================ -->
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">Especialização</span>
+      <h2>Modelos de Atuação de <span class="gradient-text">Alta Performance</span></h2>
+      <p>Desenvolvemos estratégias sob medida focadas na realidade do seu modelo de negócio.</p>
+    </div>
+    <div class="cases-grid">
+
+      <div class="case-card reveal">
+        <div class="case-visual" style="background:linear-gradient(135deg,#0d1a2e,#112233);">
+          🏥
+        </div>
+        <div class="case-body">
+          <div class="case-sector">Estética & Clínicas</div>
+          <h3>Agendamentos e WhatsApp</h3>
+          <div class="case-stats" style="flex-direction: column; gap: 8px;">
+            <div class="case-stat-item" style="font-size: 14px; color: var(--muted);">
+              <strong>Foco:</strong> Atrair contatos altamente qualificados e interessados nos procedimentos de maior margem da sua clínica.
+            </div>
+            <div class="case-stat-item" style="font-size: 14px; color: var(--muted); margin-top: 4px;">
+              <strong>Estrutura:</strong> Landing Page rápida + Campanhas de Geolocalização + Roteiros de Fechamento.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card reveal reveal-delay-1">
+        <div class="case-visual" style="background:linear-gradient(135deg,#0a1628,#1a1a3e);">
+          🛍️
+        </div>
+        <div class="case-body">
+          <div class="case-sector">E-commerce & Varejo</div>
+          <h3>Escala de Vendas Online</h3>
+          <div class="case-stats" style="flex-direction: column; gap: 8px;">
+            <div class="case-stat-item" style="font-size: 14px; color: var(--muted);">
+              <strong>Foco:</strong> Escalar as vendas da sua loja virtual otimizando o custo por aquisição (CPA) e o ticket médio.
+            </div>
+            <div class="case-stat-item" style="font-size: 14px; color: var(--muted); margin-top: 4px;">
+              <strong>Estrutura:</strong> Anúncios dinâmicos + Integração de Pixel/API + Funis de Remarketing & Carrinho Abandonado.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card reveal reveal-delay-2">
+        <div class="case-visual" style="background:linear-gradient(135deg,#0d1a1a,#0a2014);">
+          📍
+        </div>
+        <div class="case-body">
+          <div class="case-sector">Negócios Locais & Serviços</div>
+          <h3>Dominância Regional</h3>
+          <div class="case-stats" style="flex-direction: column; gap: 8px;">
+            <div class="case-stat-item" style="font-size: 14px; color: var(--muted);">
+              <strong>Foco:</strong> Captar clientes no raio exato de atendimento do seu negócio físico de forma diária e previsível.
+            </div>
+            <div class="case-stat-item" style="font-size: 14px; color: var(--muted); margin-top: 4px;">
+              <strong>Estrutura:</strong> Posicionamento no Google Ads local + Meta Ads direcionado por CEP + Otimização de Perfil de Empresa.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card reveal reveal-delay-3">
+        <div class="case-visual" style="background:linear-gradient(135deg,#0a1628,#1a2744);">
+          🎓
+        </div>
+        <div class="case-body">
+          <div class="case-sector">Infoprodutos & Mentorias</div>
+          <h3>Lançamentos & Funis Perpétuos</h3>
+          <div class="case-stats" style="flex-direction: column; gap: 8px;">
+            <div class="case-stat-item" style="font-size: 14px; color: var(--muted);">
+              <strong>Foco:</strong> Automatizar e escalar a venda de seus cursos, mentorias e serviços de conhecimento.
+            </div>
+            <div class="case-stat-item" style="font-size: 14px; color: var(--muted); margin-top: 4px;">
+              <strong>Estrutura:</strong> Funil perpétuo com automação integrada + Landing Pages de alta autoridade + E-mail Marketing.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESS
+============================================================ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">Como trabalhamos</span>
+      <h2>Método comprovado para <span class="gradient-text">resultados reais</span></h2>
+      <p>Um processo estruturado, transparente e orientado a crescimento acelerado.</p>
+    </div>
+
+    <div class="process-timeline">
+      <div class="process-line"></div>
+
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Diagnóstico Profundo</h3>
+          <p>Analisamos seu negócio, concorrência, público e oportunidades com ferramentas de inteligência de mercado para construir uma base sólida de estratégia.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Estratégia Personalizada</h3>
+          <p>Desenvolvemos um plano de ação completo com canais, mensagens, orçamentos e metas claras — tudo alinhado aos seus objetivos de negócio.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Execução de Alto Nível</h3>
+          <p>Colocamos a estratégia em prática com agilidade, criatividade e precisão técnica. Cada detalhe é monitorado e otimizado continuamente.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal reveal-delay-3" style="padding-bottom:0">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>Escala & Crescimento</h3>
+          <p>Com base nos dados coletados, escalamos o que funciona e eliminamos o que não converte — maximizando o ROI e acelerando seu crescimento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL
+============================================================ -->
+<section class="cta-final" id="contact">
+  <div class="orb orb-1"></div>
+  <div class="container">
+    <div class="cta-final-inner">
+      <div class="reveal">
+        <span class="tag" style="margin-bottom:24px;display:inline-flex;">💬 Vamos conversar</span>
+        <h2>Sua empresa está pronta<br><span class="gradient-text">para crescer?</span></h2>
+        <p>Agende uma reunião estratégica gratuita e descubra como podemos transformar seu marketing em uma máquina de vendas previsível e escalável.</p>
+        <div class="cta-group">
+          <a href="https://wa.me/5522988774012" target="_blank" class="btn btn-wpp" style="font-size:17px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar no WhatsApp Agora
+          </a>
+        </div>
+        <div class="cta-note">Reunião 100% gratuita e sem compromisso</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-mark"><img src="logopura_comfundo.png" alt=""></div>
+          <span class="logo-text">Agência <span>Wel</span></span>
+        </a>
+        <p>Marketing digital de alto nível para empresas que buscam crescimento real, previsível e sustentável.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://wa.me/5522988774012" target="_blank" class="social-link" aria-label="WhatsApp">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#">Gestão de Tráfego</a></li>
+          <li><a href="#">Social Media</a></li>
+          <li><a href="#">Landing Pages</a></li>
+          <li><a href="#">Design de Conversão</a></li>
+          <li><a href="#">Branding</a></li>
+          <li><a href="#">Sites Premium</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#cases">Atuação</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#contact">Fale Conosco</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5522988774012" target="_blank">WhatsApp</a></li>
+          <li><a href="mailto:contato@agenciawel.com.br">E-mail</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Agência Wel. Todos os direitos reservados.</span>
+      <span>Feito com 💙 para impulsionar seu negócio</span>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
