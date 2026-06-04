@@ -865,29 +865,28 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.1; }
     align-items: flex-end;
     z-index: 1;
     overflow: visible;
-    background: radial-gradient(circle at 50% 60%, rgba(37, 99, 255, 0.05) 0%, rgba(91, 61, 245, 0.02) 50%, transparent 80%);
 }
 .composition-bg-glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.25;
+    filter: blur(120px);
+    opacity: 0.22;
     z-index: 0;
     pointer-events: none;
 }
 .composition-bg-glow.glow-blue {
     background: radial-gradient(circle, var(--blue) 0%, transparent 70%);
-    width: 350px;
-    height: 350px;
-    left: 10%;
-    top: 10%;
+    width: 450px;
+    height: 450px;
+    left: -50px;
+    top: 50px;
 }
 .composition-bg-glow.glow-purple {
     background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
-    width: 350px;
-    height: 350px;
-    right: 10%;
-    top: 15%;
+    width: 450px;
+    height: 450px;
+    right: -50px;
+    top: 80px;
 }
 .partner-composite {
     position: absolute;
@@ -916,16 +915,25 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.1; }
     object-fit: contain;
     transition: transform 0.4s ease, filter 0.4s ease;
     z-index: 2;
-    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 20px rgba(37, 99, 255, 0.1));
-    -webkit-mask-image: linear-gradient(to bottom, black 72%, transparent 97%);
-    mask-image: linear-gradient(to bottom, black 72%, transparent 97%);
+    -webkit-mask-image: linear-gradient(to bottom, black 30%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 92%);
+    mask-image: linear-gradient(to bottom, black 30%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 92%);
+}
+.wanderson-frame img {
+    filter: brightness(0.96) contrast(1.04) saturate(0.95) drop-shadow(15px 5px 25px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 15px rgba(37, 99, 255, 0.08));
+}
+.rafael-frame img {
+    filter: brightness(0.98) contrast(1.02) saturate(0.92) drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(91, 61, 245, 0.06));
 }
 .partner-composite:hover {
     z-index: 4;
 }
-.partner-composite:hover img {
+.wanderson-frame:hover img {
     transform: translateY(-10px) scale(1.02);
-    filter: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 30px rgba(37, 99, 255, 0.2));
+    filter: brightness(0.98) contrast(1.05) saturate(0.98) drop-shadow(25px 10px 35px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 25px rgba(37, 99, 255, 0.18));
+}
+.rafael-frame:hover img {
+    transform: translateY(-10px) scale(1.02);
+    filter: brightness(1.0) contrast(1.03) saturate(0.95) drop-shadow(10px 10px 25px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 25px rgba(91, 61, 245, 0.15));
 }
 .about-placeholder {
     position: absolute;
