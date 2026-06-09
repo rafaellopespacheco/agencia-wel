@@ -237,6 +237,8 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.1; }
 .nav-links a:hover { color: var(--white); }
 .nav-cta { display: flex; align-items: center; gap: 12px; }
 .hamburger {
+    background-color: transparent;
+    border: none;
     display: none;
     flex-direction: column;
     gap: 5px;
@@ -250,7 +252,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.1; }
     transition: var(--transition);
 }
 .hamburger:hover span {
-    background: var(--off-white);
+    background: transparent;
 }
 .mobile-menu {
     display: none;
