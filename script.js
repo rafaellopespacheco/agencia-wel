@@ -173,3 +173,49 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
         }
     });
 });
+
+/* ---------- CTA FORM SUBMISSION (NETLIFY) ---------- */
+const ctaForm = document.getElementById("ctaForm");
+const formSuccess = document.getElementById("formSuccess");
+
+if (ctaForm && formSuccess) {
+    ctaForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(ctaForm);
+        
+        // Show loading state on button
+        const submitBtn = ctaForm.querySelector(".btn-submit");
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+            <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="animation: spin 1s linear infinite; margin-right: 8px; vertical-align: middle;">
+                <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)"></circle>
+                <path d="M12 2a10 10 0 0 1 10 10" stroke="#fff"></path>
+            </svg>
+            Enviando...
+        `;
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+        })
+        .then((response) => {
+            if (response.ok) {
+                // Smoothly hide form and show success message
+                ctaForm.style.display = "none";
+                formSuccess.style.display = "flex";
+            } else {
+                throw new Error("Erro na resposta do servidor");
+            }
+        })
+        .catch((error) => {
+            console.error("Erro ao enviar formulário:", error);
+            alert("Ocorreu um erro ao enviar o formulário. Por favor, tente novamente ou entre em contato pelo WhatsApp.");
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        });
+    });
+}
+
